@@ -72,3 +72,32 @@ end
 # Print the list sorted by length
 #sorted_handles.each { |handle| puts handle }
 
+# to find @epenser into handle_tweutteur
+position = handles_tweutteur.index("@epenser")
+
+# Verify wher is @epenser
+if position
+  puts "The position of @epenser is: #{position}"
+else
+  puts "@epenser is missing innit?"
+end
+
+# Using the map methode to creat a new array 
+handle_lengths = handles_tweutteur.map { |handle| handle[1..-1].length }
+
+# Create a hash to store the distribution by handle size
+handle_length_counts = Hash.new(0)
+
+# Count 
+handle_lengths.each do |length|
+  handle_length_counts[length] += 1
+end
+
+# Sort by length.
+sorted_handle_length_counts = handle_length_counts.sort.to_h
+
+# sorted by Handles length (ascending)
+sorted_handle_length_counts.each do |length, count|
+  puts "Nombre de handles avec #{length} caractères : #{count}"
+end
+
